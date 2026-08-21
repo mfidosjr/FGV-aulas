@@ -1,0 +1,25 @@
+=== PROMPT PRONTO PARA COPIAR E COLAR NO GAMMA.APP ===
+
+Crie uma apresentação executiva profissional e moderna de 3 slides em formato de apresentação corporativa sobre "Detecção Inteligente de Fraudes Financeiras com Inteligência Artificial", seguindo rigorosamente a estrutura abaixo:
+
+Slide 1: O Fim da Fraude Silenciosa — Protegendo a Receita e a Experiência do Cliente
+Subtítulo: Como a Inteligência Artificial Transforma a Prevenção de Perdas Financeiras em uma Vantagem Competitiva.
+- O Desafio Atual: Instituições financeiras perdem milhões de reais anualmente com fraudes transacionais, enquanto arcam com altos custos operacionais de suporte ao cliente ao tentar bloquear transações de forma manual.
+- A Limitação Atual: Regras estáticas e modelos lineares tradicionais não acompanham a sofisticação dos fraudadores, gerando alto índice de Falsos Positivos e atrito com clientes legítimos.
+- A Visão com IA: Redes Neurais (MLP) adaptadas para dados desbalanceados, capazes de identificar padrões não-lineares complexos em milissegundos, reduzindo perdas e eliminando atritos.
+
+Slide 2: Por Dentro da Solução — Como Nossa Rede Neural Identifica Padrões Ocultos
+Subtítulo: Tecnologia de Ponta Aplicada à Análise Comportamental em Tempo Real sem Complicação.
+- Nossos Dados: Atributos transacionais nativos (valor, horário, frequência em 24h, geolocalização e novos dispositivos).
+- A Abordagem Inteligente: Treinamento especializado com Oversampling da classe minoritária, permitindo que a Rede Neural aprenda combinações complexas mantendo 0% de colapso do modelo.
+- Integração Fluida: Microsserviço de inferência contínua via API REST (latência < 30ms), scoreando transações em tempo real sem fricção.
+
+Slide 3: Impacto de Negócio e Roadmap de Entrega — Rumo a uma Operação Escalável
+Subtítulo: Retorno Financeiro Quantificável, Validação Robusta e Implantação Segura.
+- Impacto Esperado: Aumento de +23.5% no F1-Score e ganho de +43% em Precisão sobre o baseline, com captura constante de fraudes (Recall > 51%), otimizando a matriz de custos reais.
+- Validação Segura: Validação empírica multi-seed (seeds 42, 7 e 123) comprovando estabilidade, seguida de fase piloto em Shadow Mode em produção.
+- Roadmap: Fase 1 (Semanas 1-2: Homologação API), Fase 2 (Semanas 3-4: Pilot Shadow Mode e ajuste de limiar), Fase 3 (Mês 2: Rollout oficial).
+
+Estilo Visual Desejado no Gamma:
+- Tema profissional / fintech moderno (tons de azul escuro, cinza espacial e destaques em verde/ciano).
+- Layout limpo, com ícones minimalistas, bullet points bem espaçados e destaque visual para os números de impacto (+23.5% F1-Score, +43% Precisão, < 30ms latência).
