@@ -1,25 +1,20 @@
-=== PROMPT PRONTO PARA COPIAR E COLAR NO GAMMA.APP ===
+Crie uma apresentação executiva profissional de 3 slides no estilo corporativo moderno, com design limpo, visual elegante e foco estratégico em negócios, com base no seguinte projeto de Inteligência Artificial:
 
-Crie uma apresentação executiva profissional e moderna de 3 slides em formato de apresentação corporativa sobre "Detecção Inteligente de Fraudes Financeiras com Inteligência Artificial", seguindo rigorosamente a estrutura abaixo:
+Título da Apresentação: O Fim da Fraude Silenciosa — Protegendo a Receita e a Experiência do Cliente
+Subtítulo Geral: Como a Inteligência Artificial Transforma a Prevenção de Perdas Financeiras em uma Vantagem Competitiva
+Autor: Renan Marchini Andrusiac Vieira | MBA em IA para Negócios — FGV
 
-Slide 1: O Fim da Fraude Silenciosa — Protegendo a Receita e a Experiência do Cliente
-Subtítulo: Como a Inteligência Artificial Transforma a Prevenção de Perdas Financeiras em uma Vantagem Competitiva.
-- O Desafio Atual: Instituições financeiras perdem milhões de reais anualmente com fraudes transacionais, enquanto arcam com altos custos operacionais de suporte ao cliente ao tentar bloquear transações de forma manual.
-- A Limitação Atual: Regras estáticas e modelos lineares tradicionais não acompanham a sofisticação dos fraudadores, gerando alto índice de Falsos Positivos e atrito com clientes legítimos.
-- A Visão com IA: Redes Neurais (MLP) adaptadas para dados desbalanceados, capazes de identificar padrões não-lineares complexos em milissegundos, reduzindo perdas e eliminando atritos.
+Slide 1: O Desafio e a Oportunidade com IA
+- O Desafio: Instituições financeiras perdem milhões anualmente com fraudes não detectadas (Falsos Negativos custam R$ 1.500 cada) e geram alto atrito ao bloquear indevidamente clientes legítimos (Falsos Positivos custam R$ 100 cada).
+- A Limitação Atual: Regras manuais fixas (F1 de 0,059) e modelos lineares tradicionais geram excesso de falsos alarmes (1.400 FPs).
+- A Visão com IA: Rede Neural Multi-Layer Perceptron (MLP) com balanceamento por Oversampling, operando em tempo real com latência de API < 30ms para identificar fraudes sutis sem bloquear compras legítimas.
 
-Slide 2: Por Dentro da Solução — Como Nossa Rede Neural Identifica Padrões Ocultos
-Subtítulo: Tecnologia de Ponta Aplicada à Análise Comportamental em Tempo Real sem Complicação.
-- Nossos Dados: Atributos transacionais nativos (valor, horário, frequência em 24h, geolocalização e novos dispositivos).
-- A Abordagem Inteligente: Treinamento especializado com Oversampling da classe minoritária, permitindo que a Rede Neural aprenda combinações complexas mantendo 0% de colapso do modelo.
-- Integração Fluida: Microsserviço de inferência contínua via API REST (latência < 30ms), scoreando transações em tempo real sem fricção.
+Slide 2: Arquitetura e Inteligência Preditiva
+- Nossos Dados: Variáveis transacionais e comportamentais em tempo real (valor_transacao, hora_do_dia, distancia_do_local_habitual_km, transacoes_ultimas_24h, dispositivo_novo).
+- A Abordagem Inteligente: Arquitetura MLP (16, 8) com ReLU e Oversampling de treino, eliminando 100% de colapsos e aprendendo combinações não-lineares complexas.
+- Integração e MLOps: Microsserviço FastAPI em contêiner Docker/Kubernetes com SLA de latência < 30ms p95, Feature Store Redis (<2ms) e governança com circuit breaker.
 
-Slide 3: Impacto de Negócio e Roadmap de Entrega — Rumo a uma Operação Escalável
-Subtítulo: Retorno Financeiro Quantificável, Validação Robusta e Implantação Segura.
-- Impacto Esperado: Aumento de +23.5% no F1-Score e ganho de +43% em Precisão sobre o baseline, com captura constante de fraudes (Recall > 51%), otimizando a matriz de custos reais.
-- Validação Segura: Validação empírica multi-seed (seeds 42, 7 e 123) comprovando estabilidade, seguida de fase piloto em Shadow Mode em produção.
-- Roadmap: Fase 1 (Semanas 1-2: Homologação API), Fase 2 (Semanas 3-4: Pilot Shadow Mode e ajuste de limiar), Fase 3 (Mês 2: Rollout oficial).
-
-Estilo Visual Desejado no Gamma:
-- Tema profissional / fintech moderno (tons de azul escuro, cinza espacial e destaques em verde/ciano).
-- Layout limpo, com ícones minimalistas, bullet points bem espaçados e destaque visual para os números de impacto (+23.5% F1-Score, +43% Precisão, < 30ms latência).
+Slide 3: Impacto de Negócio, ROI e Roadmap de Implantação
+- Métricas Validadas Multi-Seed (Seeds 42, 7, 123): Precisão Média de 0,138 ± 0,019 (+43,8% vs baseline), F1-Score Médio de 0,217 ± 0,024 (+30,7% vs baseline) e Recall de 51,4% ± 0,9%.
+- Retorno Financeiro e ROI: Economia anual projetada de R$ 504.000,00/ano (em volume de 1M transações/mês), Capex de R$ 65.000,00, Opex de R$ 54.000,00/ano, gerando um ROI de +323,5% no 1º ano e Payback de 2,8 meses.
+- Roadmap de Entrega: Fase 1 (Homologação API <30ms) -> Fase 2 (Piloto Shadow Mode e calibração de threshold 0.80) -> Fase 3 (Rollout oficial com monitoramento contínuo de Data Drift via PSI e retreino mensal).
