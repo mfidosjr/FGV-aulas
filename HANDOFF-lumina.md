@@ -1,32 +1,34 @@
 # Handoff de Continuidade: Projeto Lumina
 
 ## 1. Estado Atual do Projeto
-Entrega final consolidada na branch main do fork jlmaximo/FGV-aulas, integrando o caso de negócio de portabilidade inteligente de crédito para a fincare brasileira Lumina (modelo B2B2C).
+Entrega final revisada na branch main do fork jlmaximo/FGV-aulas, incorporando as melhorias de viabilidade econômica (ROI), critérios numéricos de MLOps, refatoração de código (DRY) e seção de limitações recomendadas na revisão.
 
 ## 2. Entregáveis do Projeto
 1. Notebook didático de IA:
    - aplicacoes-de-negocio/14-portabilidade-credito-lumina.ipynb
-2. Plano de projeto de IA (Markdown):
+2. Plano de projeto de IA (Markdown com Seção 8 de ROI):
    - plano-projeto-lumina.md
-3. Plano de projeto de IA (PDF oficial):
+3. Plano de projeto de IA (PDF oficial atualizado):
    - plano-projeto-lumina.pdf
 4. Apresentação executiva (3 slides em PPTX):
    - Pare-de-Pagar-Juros-que-Ninguem-Deveria-Pagar.pptx
 
-## 3. Resultados Principais do Experimento
+## 3. Resultados Principais e Métricas de Negócio
 - Validação multi-seed (seeds 42, 7 e 123) com 2.000 contratos simulados:
   - Rede Neural (MLPClassifier): AUC-ROC médio de 0,883 +- 0,010
   - Regressão Logística (Baseline): AUC-ROC médio de 0,861 +- 0,011
-- Estabilidade entre sementes:
-  - Seed 42: MLP 0,894 vs Regressão Logística 0,857
-  - Seed 7: MLP 0,879 vs Regressão Logística 0,852
-  - Seed 123: MLP 0,876 vs Regressão Logística 0,873 (empate técnico)
-- Decisão de produção:
-  - Escolha oficial pela Regressão Logística calibrada via Platt Scaling/Isotônica.
-  - Justificativa de negócio: explicabilidade nativa e transparente para o trabalhador CLT, gerando justificativas diretas no aplicativo com baixo custo computacional em arquitetura serverless (Netlify Functions).
+  - Estabilidade: empate técnico na seed 123 (MLP 0,876 vs Regressão Logística 0,873).
+- Decisão de produção: Regressão Logística calibrada pela explicabilidade nativa no app.
+- Viabilidade econômica (ROI) por empresa cliente (500 colaboradores):
+  - Receita anual bruta: R$ 150.000 (R$ 25/colab/mês) | Receita retida (90% retenção): R$ 135.000.
+  - Valor devolvido aos colaboradores: R$ 232.000/ano (80 contratos portados x R$ 2.900).
+  - Custo no Ano 1: R$ 13.200 (Construção: R$ 6.000 + Sustentação: R$ 7.200).
+  - ROI Ano 1: 10,36x (1.036%) | Payback do investimento inicial: 0,48 mês (~15 dias).
+- MLOps: Gatilho numérico de retreino (queda > 5 p.p. na taxa de sucesso) e reavaliação trimestral.
+- Limitações: Reconhecimento de dados 100% sintéticos e necessidade de feedback loop com dados reais.
 
 ## 4. Convenções do Projeto
-- Padrão de commits: Conventional Commits (feat, docs, fix, test, chore).
+- Padrão de commits: Conventional Commits (feat, docs, fix, test, refactor).
 - Idioma: Português brasileiro em toda a documentação e comentários.
 - Regras de estilização: Sem uso de em-dashes no texto gerado.
 - Integridade: Resultados numéricos do notebook preservados de execução real.
