@@ -17,6 +17,7 @@ Como a Lumina está em estágio de validação e não possui histórico volumét
 - **Hipótese 1:** Taxa de sucesso das portabilidades recomendadas superior a 80% (alta precisão para preservar a confiança no diagnóstico).
 - **Hipótese 2:** Churn anual de empresas contratantes do benefício corporativo abaixo de 10%, sustentado pela percepção de valor e economia real gerada para os colaboradores.
 - **Hipótese 3:** Engajamento ativo no diagnóstico superior a 60% dos colaboradores cadastrados nas empresas clientes.
+- **Hipótese 4:** Receita retida anual por cliente de R$ 135.000 (500 colaboradores x R$ 25 x 12 x 90% de retenção).
 
 ## 2. Coleta e Preparação de Dados
 
@@ -115,7 +116,7 @@ O modelo precisa alimentar mensagens diretas no aplicativo que expliquem o motiv
   - Processo manual mensal de revisão: cruzamento entre os diagnósticos emitidos no app e os desfechos reportados pelos próprios usuários e pelas empresas parceiras.
   - Acompanhamento da taxa de conversão real e das razões de recusa reportadas.
 - **Gatilho de retreino:**
-  - Qualitativo e orientado a feedback: reavaliação dos parâmetros do modelo quando houver queda perceptível na taxa de sucesso reportada ou quando o Banco Central publicar alterações relevantes nas tabelas de taxas médias.
+  - Queda da taxa de sucesso das recomendações superior a 5 pontos percentuais em relação à baseline de lançamento, medida na revisão mensal, ou atualização relevante das tabelas de taxas médias do BACEN. Cadência de retreino distinta do monitoramento: reavaliação trimestral programada do modelo, mesmo sem gatilho disparado.
 
 ### Visão de Escala
 - Microserviço dedicado de inferência em tempo real utilizando FastAPI e empacotamento em containers gerenciados.
@@ -123,3 +124,43 @@ O modelo precisa alimentar mensagens diretas no aplicativo que expliquem o motiv
 - Monitoramento contínuo de Data Drift e Concept Drift com ferramentas automatizadas (como Evidently AI).
 - Pipeline de retreinamento automatizado com testes de regressão antes do deploy contínuo (CI/CD de ML).
 - Evoluções condicionadas a tração de mercado e volume real de contratos analisados.
+
+## 8. Viabilidade Econômica (ROI)
+
+Todas as premissas econômicas abaixo são declaradas explicitamente como hipóteses iniciais a validar:
+
+### Premissas de Receita
+- **Perfil de cliente ilustrativo:** empresa contratante com 500 colaboradores CLT.
+- **Ticket médio por colaborador:** R$ 25/colaborador/mês (ponto médio da faixa de precificação B2B2C de R$ 15 a R$ 40).
+- **Receita bruta anual por empresa cliente:** 500 colaboradores x R$ 25 x 12 meses = R$ 150.000.
+
+### Premissas de Valor Entregue (Economia aos Colaboradores)
+- **Elegibilidade:** 20% dos colaboradores possuem contratos de crédito ativos em condições portáveis (100 colaboradores).
+- **Taxa de conversão das recomendações:** 80% dos colaboradores elegíveis concluem a portabilidade (80 contratos portados por empresa/ano).
+- **Economia financeira média:** R$ 2.900 economizados ao longo do contrato por portabilidade concluída.
+- **Valor financeiro total devolvido por empresa/ano:** 500 x 0,20 x 0,80 x R$ 2.900 = R$ 232.000.
+
+### Estrutura de Custos (Estimativas Declaradas)
+- **Custo de Construção (Estimativa Declarada):**
+  - 40 horas de desenvolvimento a R$ 150/hora = R$ 6.000.
+  - Infraestrutura serverless no tier gratuito (Supabase e Netlify), resultando em custo marginal aproximadamente zero neste estágio.
+  - Custo total de construção: R$ 6.000.
+- **Custo de Sustentação (Estimativa Declarada):**
+  - Revisão manual mensal de 4 horas a R$ 150/hora = R$ 600/mês = R$ 7.200/ano.
+  - Custo computacional de inferência: desprezível (modelo de Regressão Logística serializado em Netlify Function).
+  - Custo total de sustentação anual: R$ 7.200/ano.
+- **Custo Total no Primeiro Ano (Construção + Sustentação):** R$ 6.000 + R$ 7.200 = R$ 13.200.
+
+### Comparação Custo vs. Retorno (ROI e Payback)
+- **Retorno sobre o Investimento (ROI):**
+  - Fórmula: ROI = (retorno - custo) / custo.
+  - Calculado sobre a receita de um único cliente B2B2C no primeiro ano: (R$ 150.000 - R$ 13.200) / R$ 13.200 = 10,36 (1.036% de retorno sobre o investimento).
+  - Calculado sobre a receita líquida retida de um cliente (considerando 10% de churn): (R$ 135.000 - R$ 13.200) / R$ 13.200 = 9,23 (923% de retorno).
+- **Payback em Meses:**
+  - Receita mensal gerada por uma empresa cliente: 500 colaboradores x R$ 25 = R$ 12.500/mês.
+  - Payback do custo de construção inicial: R$ 6.000 / R$ 12.500 = 0,48 mês (~15 dias).
+  - Payback do custo total anual (incluindo sustentação): R$ 13.200 / R$ 12.500 = 1,06 mês (~32 dias).
+
+### Métrica de Negócio Consolidada
+- **Fórmula:** receita_retida = ticket x colaboradores x 12 x (1 - churn).
+- **Projeção com as metas do plano (churn 10%):** R$ 25 x 500 colaboradores x 12 meses x (1 - 0,10) = R$ 135.000 de receita retida anual por cliente.
